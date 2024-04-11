@@ -104,13 +104,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const Navbar = ({ open, handleDrawerOpen }: props) => {
 
   const [darkMode, setDarkMode] = React.useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
+    const savedMode = window.localStorage.getItem('darkMode');
     return savedMode ? JSON.parse(savedMode) : false;
   });
 
   // Update localStorage and body styles whenever darkMode changes
   React.useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    window.localStorage.setItem('darkMode', JSON.stringify(darkMode));
     if (darkMode) {
       document.body.style.backgroundColor = '#1e293b';
       document.body.style.color = '#ffffff';
